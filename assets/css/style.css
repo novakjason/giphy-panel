@@ -1,0 +1,52 @@
+/* 
+Color Theme
+#2C3531
+#116466
+#D9B08C
+#FFCB9A
+#D1E8E2
+*/
+
+body {
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+.logo {
+  background: #D9B08C;
+  color: #116466;
+  font-size: 24pt;
+}
+
+.btn-custom {
+  color: #116466;
+  background-color: #D1E8E2;
+  border-color: #D1E8E2;
+}
+
+.btn-custom:hover {
+  color: #116466;
+  background-color: #96cbbd;
+  border-color: #96cbbd;
+}
+
+.btn-custom:focus, .btn-custom.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-custom.disabled, .btn-custom:disabled {
+  color: #116466;
+  background-color: #D1E8E2;
+  border-color: #D1E8E2;
+}
+
+.btn-custom:not(:disabled):not(.disabled):active, .btn-custom:not(:disabled):not(.disabled).active,
+.show > .btn-custom.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.btn-custom:not(:disabled):not(.disabled):active:focus, .btn-custom:not(:disabled):not(.disabled).active:focus,
+.show > .btn-custom.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
