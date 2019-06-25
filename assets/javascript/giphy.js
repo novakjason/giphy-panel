@@ -1,6 +1,5 @@
 // 1. Before you can make any part of your site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
 //    * We chose animals for our theme, but you can make a list to your own liking.
-
 $(function () {
     createButton(buttonArray, 'giphyButton btn btn-custom mx-2 mb-2', "#giphyButtons");
     $("#createBtn").on("click", addButton);
@@ -64,22 +63,25 @@ function showGiphy() {
             ratingDiv.addClass("mb-3");
 
             $("#gifs").prepend(giphyDiv);
-            $(".giphyImage").on("click", toggleGif);
         }
+        $(".giphyImage").on("click", toggleGif);
+
     });
 }
+
 // 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
 
 function toggleGif() {
     var toggle = $(this).attr("toggle");
     console.log(toggle);
     if (toggle === "off") {
+        var toggle = $(this).attr("toggle", "on");
         $(this).attr("src", $(this).attr("gifURL"));
         $(this).attr("toggle", "on");
     } else {
+        var toggle = $(this).attr("toggle", "off");
         $(this).attr("src", $(this).attr("staticURL"));
         $(this).attr("toggle", "off");
-
     }
 }
 
@@ -102,5 +104,3 @@ function addButton() {
     $(".giphyButton").on("click", showGiphy);
     return false;
 }
-
-
