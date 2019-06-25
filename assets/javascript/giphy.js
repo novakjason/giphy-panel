@@ -7,7 +7,7 @@ $(function () {
     $(".giphyButton").on("click", showGiphy);
 })
 
-var buttonArray = ["Dragon Ball Z", "Cowboy Bebop", "Ninja Scroll"];
+var buttonArray = ["Dragon Ball Z", "Akira", "Cowboy Bebop", "Ninja Scroll"];
 
 // 2. Your app should take the topics in this array and create buttons in your HTML.
 function createButton(buttonArray, classes, btnLocation) {
@@ -40,7 +40,6 @@ function showGiphy() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
 
         var results = response.data;
 
@@ -52,7 +51,6 @@ function showGiphy() {
             var ratingDiv = $("<div>").text("Rated: " + results[j].rating.toUpperCase());
 
             animeImage.attr("src", results[j].images.fixed_height_still.url);
-
 
             giphyDiv.addClass("col-md mb-1 text-center");
             ratingDiv.addClass("mb-3");
@@ -84,7 +82,7 @@ function addButton() {
     console.log(checkButton);
 
 
-    if (checkButton > -1) {
+    if (checkButton > -1 || userInput == "") {
         createButton(buttonArray, 'giphyButton btn btn-custom mx-2 mb-2', "#giphyButtons");
     }
     else {
