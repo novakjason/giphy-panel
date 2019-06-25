@@ -74,11 +74,15 @@ function showGiphy() {
 function addButton() {
     var userInput = $("input").eq(0).val();
     console.log("create button clicked!!!");
-
     console.log(userInput);
 
-    var checkButton = $.inArray(userInput, buttonArray);
+    var lowercaseArray = buttonArray.toString().toLowerCase().split(',');
+    var lowercaseInput = userInput.toLowerCase();
+    console.log(lowercaseInput);
+
+    var checkButton = $.inArray(lowercaseInput, lowercaseArray);
     console.log(checkButton);
+
 
     if (checkButton > -1) {
         createButton(buttonArray, 'giphyButton btn btn-custom mx-2 mb-2', "#giphyButtons");
