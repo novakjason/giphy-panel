@@ -40,7 +40,7 @@ function showGiphy() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-
+        console.log(response);
         var results = response.data;
 
         for (var j = 0; j < results.length; j++) {
@@ -49,44 +49,53 @@ function showGiphy() {
             var animeImage = $("<img>");
             // 5. Under every gif, display its rating (PG, G, so on).
             var ratingDiv = $("<div>").text("Rated: " + results[j].rating.toUpperCase());
+            var static = results[j].images.fixed_height_still.url;
 
-            animeImage.attr("src", results[j].images.fixed_height_still.url);
+            animeImage.attr("src", static);
+            animeImage.attr("toggle", "off");
+            animeImage.attr("gifURL", results[j].images.fixed_height.url);
+            animeImage.attr("staticURL", static);
+            animeImage.addClass("giphyImage rounded");
 
             giphyDiv.addClass("col-md mb-1 text-center");
-            ratingDiv.addClass("mb-3");
-
             giphyDiv.append(animeImage);
             giphyDiv.append(ratingDiv);
 
-            $("#gifs").prepend(giphyDiv);
+            ratingDiv.addClass("mb-3");
 
+            $("#gifs").prepend(giphyDiv);
+            $(".giphyImage").on("click", toggleGif);
         }
     });
-
 }
 // 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
 
+function toggleGif() {
+    var toggle = $(this).attr("toggle");
+    console.log(toggle);
+    if (toggle === "off") {
+        $(this).attr("src", $(this).attr("gifURL"));
+        $(this).attr("toggle", "on");
+    } else {
+        $(this).attr("src", $(this).attr("staticURL"));
+        $(this).attr("toggle", "off");
+
+    }
+}
 
 // 6. Add a form to your page that takes a value from a user input box and adds it to your `topics` array. Then make a function call that takes each topic in the array and remakes the buttons on the page.
 
 function addButton() {
-    var userInput = $("input").eq(0).val();
-    console.log("create button clicked!!!");
-    console.log(userInput);
 
+    var userInput = $("input").eq(0).val();
     var lowercaseArray = buttonArray.toString().toLowerCase().split(',');
     var lowercaseInput = userInput.toLowerCase();
-    console.log(lowercaseInput);
-
     var checkButton = $.inArray(lowercaseInput, lowercaseArray);
-    console.log(checkButton);
-
 
     if (checkButton > -1 || userInput == "") {
         createButton(buttonArray, 'giphyButton btn btn-custom mx-2 mb-2', "#giphyButtons");
     }
     else {
-
         buttonArray.push(userInput);
         createButton(buttonArray, 'giphyButton btn btn-custom mx-2 mb-2', "#giphyButtons");
     }

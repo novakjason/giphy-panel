@@ -30,7 +30,7 @@ body {
 }
 
 .btn-custom:focus, .btn-custom.focus {
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem #96cbbd;
 }
 
 .btn-custom.disabled, .btn-custom:disabled {
@@ -41,12 +41,12 @@ body {
 
 .btn-custom:not(:disabled):not(.disabled):active, .btn-custom:not(:disabled):not(.disabled).active,
 .show > .btn-custom.dropdown-toggle {
-  color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  color: #116466;
+  background-color: #D9B08C;
+  border-color: #116466;
 }
 
 .btn-custom:not(:disabled):not(.disabled):active:focus, .btn-custom:not(:disabled):not(.disabled).active:focus,
 .show > .btn-custom.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem #96cbbd;
 }
